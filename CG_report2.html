@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="ja">
+<html>
   <head>
     <meta charset="utf-8" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-    <script src="OrbitControls.js"></script>
-    <script>
+    <script src="https://unpkg.com/three@0.137.4/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+  </head>
+<body>
+ <script>
       // ページの読み込みを待つ
-      window.addEventListener('load', init);
-
+      window.addEventListener('DOMContentLoaded', init);
+ 
       function init() {
         // サイズを指定
-        const width = 960;
-        const height = 540;
+        const width = 800
+        const height = 600;
 
         // レンダラーを作成
-        const renderer = new THREE.WebGLRenderer({
-          canvas: document.querySelector('#myCanvas')
-        });
+        var renderer = new THREE.WebGLRenderer();
+        document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
-        // 背景の色を設定
-        renderer.setClearColor(0xeeeeff);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -27,73 +25,63 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 0, 1000);
+        camera.position.set(0, 0, 2);
 
         // カメラコントローラーを作成
-        const controls = new THREE.OrbitControls(camera,document.body);
-  
+        const controls = new THREE.OrbitControls(camera, document.body); 
+        
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xffffff);
-        directionalLight1.position.set(100, 100, 100);
+        directionalLight1.position.set(10, 10, 10);
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
         var directionalLight2 = new THREE.DirectionalLight(0xffffff);
-        directionalLight2.position.set(-100, 100, 100);
+        directionalLight2.position.set(-10, -10, 10);
         // シーンに追加
         scene.add(directionalLight2);
-
-        // helper
-        const gridHelper = new THREE.GridHelper(200,50); // size, step
-        scene.add(gridHelper);
-  
-        const axisHelper = new THREE.AxisHelper(200,50);
-        scene.add(axisHelper);
         
-        // テクスチャー読み込み
-        var textureLoader = new THREE.TextureLoader();  
-        var texture = textureLoader.load("cit.png");
-        var mat = new THREE.MeshPhongMaterial();
-        mat.map = texture;
+        //円を作成
+        var sphere = new THREE.SphereGeometry( 0.5, 20, 20 );
+        var material1 = new THREE.MeshPhongMaterial({ color: 0xff8800 ,wireframe: true});
+        var sphere1 = new THREE.Mesh( sphere, material1);
+        sphere1.position.set(0,0,0);
+        scene.add(sphere1);
 
         //全体のオブジェクト
         const all = new THREE.Group();
 
-        // 箱を作成
+        //円の周りを飛ぶ四角の作成
         var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-        
+        var material2 = new THREE.MeshPhongMaterial({ color: 0x77ffff,wireframe: true });
         for(let i=0;i<100;i++){
-          var box1 = new THREE.Mesh(geometry, mat);
+          var box1 = new THREE.Mesh(geometry, material2);
           if(i%2==0){
             box1.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
           }else{
             box1.position.set(Math.random()*2,Math.random()*2,Math.random()*2);
           }
-          all.add(box);
+          
+          all.add(box1);
         }
         all.position.set(0,0,0);
         scene.add(all); 
-        
 
+        update();
 
-        
-
-        tick();
-        // 毎フレーム時に実行されるループイベントです
-        function tick() {
+        // 毎フレーム時に実行されるループイベント
+        function update() {
           // レンダリング
           renderer.render(scene, camera);
-          requestAnimationFrame(tick);
+          requestAnimationFrame(update);
 
-           // 箱を回転させる
-          all.rotation.x += 0.01;
-          all.rotation.y += 0.01;
+        all.rotation.x += 0.02;
+        all.rotation.y += 0.02;
+        sphere1.rotation.x +=0.01;
+        sphere1.rotation.x +=0.01;
+
         }
       }
     </script>
-  </head>
-
-  <body>
-    <canvas id="myCanvas"></canvas>
-  </body>
+</body>
 </html>
