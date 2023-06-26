@@ -60,8 +60,7 @@
         const all = new THREE.Group();
 
         // 箱を作成
-        var geometry = new THREE.BoxGeometry(1, 1, 1);
-        var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+        var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
         
         for(let i=0;i<100;i++){
           var box1 = new THREE.Mesh(geometry, mat);
@@ -84,7 +83,7 @@
         function tick() {
           // レンダリング
           renderer.render(scene, camera);
-          requestAnimationFrame(update);
+          requestAnimationFrame(tick);
 
            // 箱を回転させる
           all.rotation.x += 0.01;
