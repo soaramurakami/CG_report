@@ -44,18 +44,17 @@
         
         // テクスチャー読み込み
         var textureLoader = new THREE.TextureLoader();  
-        var texture0 = textureLoader.load("cit.png");
-        var mat0 = new THREE.MeshPhongMaterial();
-        mat.map = texture0;
+        var texture1 = textureLoader.load("cit.png");
+        var mat1 = new THREE.MeshPhongMaterial();
+        mat1.map = texture1;
 
         //全体のオブジェクト
         const all = new THREE.Group();
 
-        //円の周りを飛ぶ四角の作成
+        //四角の作成
         var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-        //var material = new THREE.MeshPhongMaterial({ color: 0x77ffff,wireframe: true });
         for(let i=0;i<100;i++){
-          var box = new THREE.Mesh(geometry, mat);
+          var box = new THREE.Mesh(geometry, mat1);
           if(i%2==0){
             box.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
           }else{
