@@ -44,11 +44,25 @@
         scene.add(directionalLight2);
 
         // helper
-      const gridHelper = new THREE.GridHelper(200,50); // size, step
-      scene.add(gridHelper);
+        const gridHelper = new THREE.GridHelper(200,50); // size, step
+        scene.add(gridHelper);
+  
+        const axisHelper = new THREE.AxisHelper(200,50);
+        scene.add(axisHelper);
+        
+        //　ｆｇんｆんｆｇ
+        var textureLoader = new THREE.TextureLoader();
+        var texture = textureLoader.load("img/tree0.png");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
+        // 箱を作成
+        var geometry = new THREE.BoxGeometry(1, 1, 1);
+        //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+        //var box = new THREE.Mesh(geometry, material);
+        var box = new THREE.Mesh(geometry, mat);
+        box.position.z = -5;
+        scene.add(box);
 
-      const axisHelper = new THREE.AxisHelper(200,50);
-      scene.add(axisHelper);
 
         // 木0をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
