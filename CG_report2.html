@@ -40,29 +40,28 @@
         directionalLight2.position.set(-10, -10, 10);
         // シーンに追加
         scene.add(directionalLight2);
-        
-        //円を作成
-        var sphere = new THREE.SphereGeometry( 0.5, 20, 20 );
-        var material1 = new THREE.MeshPhongMaterial({ color: 0xff8800 ,wireframe: true});
-        var sphere1 = new THREE.Mesh( sphere, material1);
-        sphere1.position.set(0,0,0);
-        scene.add(sphere1);
+
+        // テクスチャー読み込み
+        var textureLoader = new THREE.TextureLoader();  
+        var texture = textureLoader.load("cit.jpg");
+        var mat = new THREE.MeshPhongMaterial();
+        mat.map = texture;
 
         //全体のオブジェクト
         const all = new THREE.Group();
 
         //円の周りを飛ぶ四角の作成
         var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-        var material2 = new THREE.MeshPhongMaterial({ color: 0x77ffff,wireframe: true });
+        //var material = new THREE.MeshPhongMaterial({ color: 0x77ffff,wireframe: true });
         for(let i=0;i<100;i++){
-          var box1 = new THREE.Mesh(geometry, material2);
+          var box = new THREE.Mesh(geometry, mat);
           if(i%2==0){
-            box1.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
+            box.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
           }else{
-            box1.position.set(Math.random()*2,Math.random()*2,Math.random()*2);
+            box.position.set(Math.random()*2,Math.random()*2,Math.random()*2);
           }
           
-          all.add(box1);
+          all.add(box);
         }
         all.position.set(0,0,0);
         scene.add(all); 
@@ -77,9 +76,6 @@
 
         all.rotation.x += 0.02;
         all.rotation.y += 0.02;
-        sphere1.rotation.x +=0.01;
-        sphere1.rotation.x +=0.01;
-
         }
       }
     </script>
