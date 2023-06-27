@@ -33,7 +33,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 0, 2);
+        camera.position.set(0, 0, 5);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera, document.body); 
@@ -60,7 +60,8 @@
         var texture1 = textureLoader.load("font_MASANTAX.png");
         const material1 = new THREE.SpriteMaterial({ map: texture1,});
         const sprite1 = new THREE.Sprite(material1);
-        sprite0.scale.set(-2,3,3);
+        sprite0.scale.set(1,1,1);
+        spriteo.position.set(-2,2,5);
         scene.add(sprite1);
 
         
