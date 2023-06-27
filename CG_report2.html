@@ -62,6 +62,7 @@
         const material1 = new THREE.SpriteMaterial({ map: texture1,});
         const sprite1 = new THREE.Sprite(material1);
         sprite1.position.y = -1;
+        sprite1.position.x = -0.03;
         sprite0.scale.set(2,2,2);
         scene.add(sprite1);
 
@@ -83,11 +84,11 @@
         for(let i=0;i<50;i++){ 
           if(i%2==0){
             var box = new THREE.Mesh(geometry, mat3);
-            box.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
+            box.position.set(Math.random()*4-2,Math.random()*4-2,Math.random()*4-2);
             fire.add(box);
           }else{
             var box = new THREE.Mesh(geometry, mat4);
-            box.position.set(Math.random()*2,Math.random()*2,Math.random()*2);
+            box.position.set(Math.random()*3,Math.random()*3,Math.random()*3);
             water.add(box);
           }
           
