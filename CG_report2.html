@@ -18,7 +18,7 @@
         var renderer = new THREE.WebGLRenderer();
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
-        renderer.setClearColor(0xffffdd);
+        renderer.setClearColor(0x000000);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -33,7 +33,7 @@
         
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xffffff);
-        directionalLight1.position.set(10, 10, 10);
+        directionalLight1.position.set(1, 1, 1);
         // シーンに追加
         scene.add(directionalLight1);
         // 平行光源2
