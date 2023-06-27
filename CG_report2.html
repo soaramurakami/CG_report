@@ -56,13 +56,9 @@
         const material0 = new THREE.SpriteMaterial({ map: texture0,});
         const sprite0 = new THREE.Sprite(material0);
         sprite0.scale.set(1,1,1);
-        //フォント追加
-        var texture1 = textureLoader.load("font_MASANTAX.png");
-        const material1 = new THREE.SpriteMaterial({ map: texture1,});
-        const sprite1 = new THREE.Sprite(material1);
-        sprite1.scale.set(1,1,3);
+        
         photo.add(sprite0);
-        photo.add(sprite1);
+        //photo.add(sprite1);
         scene.add(photo);
          
         //四角をまとめるオブジェクト
