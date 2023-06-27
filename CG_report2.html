@@ -18,7 +18,7 @@
         var renderer = new THREE.WebGLRenderer();
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
-        renderer.setClearColor(0xF1AA87);
+        renderer.setClearColor(0xffaaff);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -54,25 +54,34 @@
  
        
         //全体のオブジェクト
-        const all = new THREE.Group();
+        const fire  = new THREE.Group();
+        const water = new THREE.Group();
 
         //四角の作成
-        var texture1 = textureLoader.load("cit.png");
+        var texture1 = textureLoader.load("attribute/水1.png");
+        var texture2 = textureLoader.load("attribute/炎1.png");
         var mat1 = new THREE.MeshPhongMaterial();
+        var mat2 = new THREE.MeshPhongMaterial();
         mat1.map = texture1;
+        mat2.map = texture2;
 
         var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-        for(let i=0;i<5;i++){
-          var box = new THREE.Mesh(geometry, mat1);
+        for(let i=0;i<5;i++){ 
           if(i%2==0){
+            var box = new THREE.Mesh(geometry, mat1);
             box.position.set(Math.random()*3-2,Math.random()*3-2,Math.random()*3-2);
+            fire.add(box);
           }else{
+            var box = new THREE.Mesh(geometry, mat2);
             box.position.set(Math.random()*2,Math.random()*2,Math.random()*2);
+            water.add(box);
           }
-          all.add(box);
+          
         }
-        all.position.set(0,0,0);
-        scene.add(all); 
+        fire.position.set(0,0,0);
+        water.position.set(0,0,0);
+        scene.add(fire);
+        scene.add(water); 
 
         update();
 
@@ -82,8 +91,10 @@
           renderer.render(scene, camera);
           requestAnimationFrame(update);
 
-        all.rotation.x += 0.02;
-        all.rotation.y += 0.02;
+        fire.rotation.x += 0.02;
+        fire.rotation.y += 0.02;
+        water.rotation.x -= 0.02;
+        water.rotation.y -= 0.02;
         }
       }
     </script>
