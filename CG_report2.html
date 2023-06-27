@@ -53,27 +53,11 @@
         var textureLoader = new THREE.TextureLoader();  
         var texture0 = textureLoader.load("MASANTA_X2.png");
         const material0 = new THREE.SpriteMaterial({ map: texture0,});
-
         const sprite0 = new THREE.Sprite(material0);
         sprite0.scale.set(1,1,1);
         scene.add(sprite0);
- 
-        const fontLoader = new THREE.FontLoader(); // ローダーのインスタンスをつくる
-
-        fontLoader.load('/scripts/m-plus-1-code-bold.json', (font) => { // typeface.jsを読み込む
-        const textGeometry = new THREE.TextGeometry('ステーキハウス', {
-          font: font,
-          size: .2,
-          height: .2
-        });
-        textGeometry.center();
-        const textMaterial = new THREE.MeshNormalMaterial();
-        const text = new THREE.Mesh(textGeometry, textMaterial);
-        scene.add(text);
-        });
-
-        
-        //全体のオブジェクト
+         
+        //四角をまとめるオブジェクト
         const fire  = new THREE.Group();
         const water = new THREE.Group();
 
