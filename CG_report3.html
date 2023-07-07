@@ -15,9 +15,12 @@
         const height = 600;
 
         // レンダラーを作成
-        var renderer = new THREE.WebGLRenderer();
-        document.body.appendChild(renderer.domElement);
-        renderer.setSize(width, height);
+        const canvasElement = document.querySelector('#canvas') //HTMLのcanvasのid
+        const renderer = new THREE.WebGLRenderer({
+        canvas: canvasElement,
+        antialias: true, //アンチエイリアス
+        alpha: true,
+         });
 
         // シーンを作成
         const scene = new THREE.Scene();
