@@ -43,7 +43,7 @@
         
         //円を作成
         var sphere = new THREE.SphereGeometry( 0.5, 20, 20 );
-        var material1 = new THREE.MeshPhongMaterial({ color: 0xff8800 ,wireframe: true});
+        var material1 = new THREE.MeshPhongMaterial({ color: 0xff8800});
         var sphere1 = new THREE.Mesh( sphere, material1);
         sphere1.position.set(0,0,0);
         scene.add(sphere1);
@@ -53,7 +53,7 @@
 
         //円の周りを飛ぶ四角の作成
         var geometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
-        var material2 = new THREE.MeshPhongMaterial({ color: 0x77ffff,wireframe: true });
+        var material2 = new THREE.MeshPhongMaterial({ color: 0x77ffff});
         for(let i=0;i<100;i++){
           var box1 = new THREE.Mesh(geometry, material2);
           if(i%2==0){
