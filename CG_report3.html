@@ -57,7 +57,7 @@
           var color = "0x" + Math.floor(Math.random() * 16777215).toString(16);
           var material2 = new THREE.MeshPhongMaterial({ color: Number(color)});
           var box1 = new THREE.Mesh(geometry, material2);
-          box1.position.set(Math.random()*100-100/2,Math.random()*100-400/2,Math.random()*100-400/2);
+          box1.position.set(Math.random()*100-100/2,Math.random()*100-100/2,Math.random()*100-100/2);
           
           all.add(box1);
         }
