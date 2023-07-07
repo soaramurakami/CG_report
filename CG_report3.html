@@ -52,7 +52,7 @@
         const all = new THREE.Group();
 
         //円の周りを飛ぶ四角の作成
-        var geometry = new THREE.PlaneGeometry(1,1);
+        var geometry = new THREE.BoxGeometry(0.1,0.1,0.1);
         for(let i=0;i<5000;i++){
           var color = "0x" + Math.floor(Math.random() * 16777215).toString(16);
           var material2 = new THREE.MeshPhongMaterial({ color: Number(color)});
