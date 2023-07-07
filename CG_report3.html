@@ -54,8 +54,8 @@
         const all = new THREE.Group();
 
         //円の周りを飛ぶ点の作成
-        var geometry = new THREE.PointGeometry(0.1, 0.1, 0.1);
-        var material2 = new THREE.MeshPhongMaterial({ color: 0x3EDBF0});
+        var geometry = new THREE.Geometry(0.1, 0.1, 0.1);
+        var material2 = new THREE.PointMaterial({ color: 0x3EDBF0});
         for(let i=0;i<100;i++){
           var box1 = new THREE.Mesh(geometry, material2);
           if(i%2==0){
