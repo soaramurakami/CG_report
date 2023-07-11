@@ -10,7 +10,9 @@
   　今回の作品は、空を見上げる男の子をイメージして作成した。<br>
   作っていた最初は半透明な円が男の子を消してしまい、とても苦労した。<br>
   円の中に男の子を入れたら男のは見ることができるようになったが、下から見た時に
-  透過したはずの男の子の周りの枠が映ってしまった。<br>
+  透過したはずの男の子の周りの枠が映ってしまったのでカメラを固定することにした。<br>
+  背景をグラデーションにしたかったが、CSSを使わないとできないと聞いたので、半透明の円を作成することで
+  疑似的にグラデーションを作り夜っぽさを演出してみた。
   </p>
   
  <script>
@@ -37,7 +39,7 @@
         camera.position.set(0, 1, 8);
 
         // カメラコントローラーを作成
-        const controls = new THREE.OrbitControls(camera, document.body); 
+        /const controls = new THREE.OrbitControls(camera, document.body); 
         
         // 平行光源1
         var directionalLight1 = new THREE.DirectionalLight(0xffffff,1);
