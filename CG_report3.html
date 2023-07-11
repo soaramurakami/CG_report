@@ -15,11 +15,7 @@
         const height = 600;
 
         // レンダラーを作成
-        var renderer = new THREE.WebGLRenderer({ 
-          antialias: true, 
-          alpha: true,
-          transparent: true,
-          preserveDrawingBuffer: true});
+        var renderer = new THREE.WebGLRenderer();
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
         renderer.setClearColor(0x213a70);
