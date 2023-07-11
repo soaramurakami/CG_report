@@ -51,7 +51,7 @@
         var plane = new THREE.Mesh(planeGeometry,planeMaterial);
         plane.rotation.set( -Math.PI/2, 0, 0 );
         plane.position.set(0,0,0);
-        scene.add(plane);
+        all.add(plane);
 
         //人追加
         var textureLoader = new THREE.TextureLoader();  
@@ -72,7 +72,7 @@
           all.add(box1);
         }
         all.position.set(0,0,0);
-        //all.add(all); 
+        scene.add(all); 
 
         update();
 
