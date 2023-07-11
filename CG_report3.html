@@ -46,7 +46,7 @@
         const all = new THREE.Group();
 
 　　　　//地面追加
-        var planeGeometry = new THREE.PlaneGeometry(20,20,5,5);
+        var planeGeometry = new THREE.PlaneGeometry(10,10,5,5);
         var planeMaterial = new THREE.MeshBasicMaterial({
           color: 0x72814b,
         });
@@ -62,13 +62,13 @@
           map: texture0,
         });
         const sprite0 = new THREE.Sprite(material0);
-        sprite0.scale.set(1,1,1);
-        sprite0.position.set(0,0.45,0)
+        sprite0.scale.set(2,2,2);
+        sprite0.position.set(0,0.9,0)
         all.add(sprite0);
         scene.add(all);
 
         // 半透明のボックス
-        const geometry0 = new THREE.SphereGeometry(20,20,20);
+        const geometry0 = new THREE.SphereGeometry(10,10,10);
         const material = new THREE.MeshPhongMaterial({
           color: 0x77ffff,
           transparent: true,
@@ -90,7 +90,7 @@
             color: Number(color),
           });
           var box1 = new THREE.Mesh(geometry, material2);
-          box1.position.set(Math.random()*100-100/2,Math.random()*100-100/2,Math.random()*100-100/2);
+          box1.position.set(Math.random()*100-40,Math.random()*100-40,Math.random()*100-40);
           star.add(box1);
         }
         star.position.set(0,0,0);
