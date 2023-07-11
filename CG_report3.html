@@ -47,6 +47,7 @@
         var plane = new THREE.Mesh(planeGeometry,planeMaterial);
         plane.rotation.set( -Math.PI/2, 0, 0 );
         plane.position.set(0,0,0);
+        all.add(plane);
         
         //円を作成
         var sphere = new THREE.SphereGeometry( 0.5, 20, 20 );
