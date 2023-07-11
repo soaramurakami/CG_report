@@ -44,7 +44,7 @@
 　　　　//地面追加
         const ground = new THREE.Mesh(new THREE.PlaneGeometry(20000, 20000), 
                                       new THREE.MeshPhongMaterial({ color: 0x7b8d42 }))
-        //ground.rotation.x = 90 * Math.PI / 180;
+        ground.rotation.x = 90 * Math.PI / 180;
         scene.add(ground)
         
         //円を作成
