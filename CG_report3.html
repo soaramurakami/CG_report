@@ -47,7 +47,10 @@
 
 　　　　//地面追加
         var planeGeometry = new THREE.PlaneGeometry(20,20,5,5);
-        var planeMaterial = new THREE.MeshBasicMaterial({color: 0x72814b});
+        var planeMaterial = new THREE.MeshBasicMaterial({
+          color: 0x72814b,
+          transparent=false
+        });
         var plane = new THREE.Mesh(planeGeometry,planeMaterial);
         plane.rotation.set( -Math.PI/2, 0, 0 );
         plane.position.set(0,0,0);
@@ -56,7 +59,10 @@
         //人追加
         var textureLoader = new THREE.TextureLoader();  
         var texture0 = textureLoader.load("CHILD.png");
-        const material0 = new THREE.SpriteMaterial({ map: texture0,});
+        const material0 = new THREE.SpriteMaterial({ 
+          map: texture0,
+          transparent=false
+        });
         const sprite0 = new THREE.Sprite(material0);
         sprite0.scale.set(1,1,1);
         sprite0.position.set(0,0.45,0)
@@ -64,7 +70,7 @@
         scene.add(all);
 
         // 半透明のボックス
-        const geometry0 = new THREE.BoxGeometry(1, 1, 1);
+        const geometry0 = new THREE.BoxGeometry(30, 30, 30);
         const material = new THREE.MeshPhongMaterial({
           color: 0x77ffff,
           transparent: true,
@@ -82,7 +88,10 @@
         var geometry = new THREE.BoxGeometry(0.1,0.1,0.1);
         for(let i=0;i<5000;i++){
           var color = "0x" + Math.floor(Math.random() * 16777215).toString(16);
-          var material2 = new THREE.MeshPhongMaterial({ color: Number(color)});
+          var material2 = new THREE.MeshPhongMaterial({ 
+            color: Number(color),
+            transparent=false,
+          });
           var box1 = new THREE.Mesh(geometry, material2);
           box1.position.set(Math.random()*100-100/2,Math.random()*100-100/2,Math.random()*100-100/2);
           star.add(box1);
