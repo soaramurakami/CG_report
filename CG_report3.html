@@ -15,7 +15,7 @@
         const height = 600;
 
         // レンダラーを作成
-        renderer = new THREE.WebGLRenderer({
+        var renderer = new THREE.WebGLRenderer({
           canvas: document.querySelector('#appCanvas'),
           antialias: true,
           alpha: true,  /// <= これ
