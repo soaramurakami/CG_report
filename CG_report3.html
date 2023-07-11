@@ -42,7 +42,7 @@
         // シーンに追加
         scene.add(directionalLight2);
 
-        //全体のオブジェクト
+        //人と地面のオブジェクト
         const all = new THREE.Group();
 
 　　　　//地面追加
@@ -61,7 +61,10 @@
         sprite0.scale.set(1,1,1);
         sprite0.position.set(0,0.45,0)
         all.add(sprite0);
-
+        
+         //四角全体のオブジェクト
+        const star = new THREE.Group();
+        
         //円の周りを飛ぶ四角の作成
         var geometry = new THREE.BoxGeometry(0.1,0.1,0.1);
         for(let i=0;i<5000;i++){
@@ -69,10 +72,10 @@
           var material2 = new THREE.MeshPhongMaterial({ color: Number(color)});
           var box1 = new THREE.Mesh(geometry, material2);
           box1.position.set(Math.random()*100-100/2,Math.random()*100-100/2,Math.random()*100-100/2);
-          all.add(box1);
+          star.add(box1);
         }
         all.position.set(0,0,0);
-        scene.add(all); 
+        scene.add(star); 
 
         update();
 
