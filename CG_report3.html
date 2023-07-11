@@ -18,6 +18,7 @@
         var renderer = new THREE.WebGLRenderer({ 
           antialias: true, 
           alpha: true,
+          transparent: true,
           preserveDrawingBuffer: true});
         document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
