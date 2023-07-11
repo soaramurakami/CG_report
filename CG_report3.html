@@ -67,12 +67,14 @@
         all.add(sprite0);
         scene.add(all);
 
-        const geometry0 = new THREE.BoxGeometry(30, 30, 30);
+        // 半透明のボックス
+        const geometry0 = new THREE.BoxGeometry(1, 1, 1);
         const material = new THREE.MeshPhongtMaterial({
           color: 0x77ffff,
           transparent: true,
-          opacity: 0.7,
+          opacity: 0.3,
         });
+        
         const cube = new THREE.Mesh(geometry0, material);
         scene.add(cube);
         
